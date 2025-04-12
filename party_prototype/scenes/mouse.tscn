@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://beagok2h5ka3k"]
+
+[ext_resource type="Texture2D" uid="uid://bhc82xpkmsqrb" path="res://assets/mouse_walk.png" id="1_ficwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vf6k"]
+atlas = ExtResource("1_ficwt")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0b78"]
+atlas = ExtResource("1_ficwt")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deovr"]
+atlas = ExtResource("1_ficwt")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2vm8"]
+atlas = ExtResource("1_ficwt")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qska"]
+atlas = ExtResource("1_ficwt")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfoxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vf6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0b78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deovr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2vm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qska")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xoeb"]
+radius = 4.54479
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(2.86042, 2.86042)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gfoxb")
+autoplay = "default"
+frame_progress = 0.830371
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 0.428571)
+shape = SubResource("CapsuleShape2D_3xoeb")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2c5ome6pu0sp"]
+
+[ext_resource type="Texture2D" uid="uid://btjrl5moa2muo" path="res://assets/garbage bag 1.png" id="1_23pwv"]
+
+[node name="garbage" type="Area2D"]
+scale = Vector2(5.71994, 5.71994)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_23pwv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(0.803032, 0.739726)
+polygon = PackedVector2Array(3, -9.9, 1.2, -10.5, -7, -10.5, -9, -8.3, -9, 10.5, 9, 10.5, 9, -0.1, 2, -5.5, 3, -6.9)
