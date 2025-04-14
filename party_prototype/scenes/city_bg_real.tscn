@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj8r2r0u1ah3d"]
-
-[ext_resource type="Texture2D" uid="uid://klclc4f422cn" path="res://assets/city.png" id="1_l5j3o"]
+[gd_scene format=3 uid="uid://bj8r2r0u1ah3d"]
 
 [node name="city_bg_real" type="Node2D"]
 
@@ -12,6 +10,5 @@ motion_mirroring = Vector2(1716, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(-841, -657)
-texture = ExtResource("1_l5j3o")
 centered = false
 offset = Vector2(64, 0)

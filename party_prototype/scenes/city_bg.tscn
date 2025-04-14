@@ -1,15 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxr4y4602nwmb"]
-
-[ext_resource type="Texture2D" uid="uid://klclc4f422cn" path="res://assets/city.png" id="1_73ri2"]
+[gd_scene format=3 uid="uid://bxr4y4602nwmb"]
 
 [node name="Sprite2D" type="Sprite2D"]
 position = Vector2(-235, 31)
-texture = ExtResource("1_73ri2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1715, 1)
-texture = ExtResource("1_73ri2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(3427, 1)
-texture = ExtResource("1_73ri2")
