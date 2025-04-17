@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1k78csrgbq1a"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_ylh6p"]
+[ext_resource type="Texture2D" uid="uid://btjrl5moa2muo" path="res://assets/garbage bag 1.png" id="2_swsvb"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ylh6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_swsvb")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]

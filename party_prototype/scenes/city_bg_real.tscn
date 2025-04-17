@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bj8r2r0u1ah3d"]
+
+[node name="city_bg_real" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(279, 6)
+motion_mirroring = Vector2(1716, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-841, -657)
+centered = false
+offset = Vector2(64, 0)
