@@ -1,10 +1,72 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0wvpmoysx8d7"]
+[gd_scene load_steps=21 format=3 uid="uid://d0wvpmoysx8d7"]
 
 [ext_resource type="Texture2D" uid="uid://nelfk8j6pgp0" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_ghglx"]
-[ext_resource type="Script" path="res://scenes/cat.gd" id="1_gw3yj"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="2_vttaw"]
-[ext_resource type="Script" path="res://scripts/idle_state.gd" id="3_wrjoc"]
-[ext_resource type="Script" path="res://scripts/walk_state.gd" id="4_aj1wd"]
+
+[sub_resource type="GDScript" id="GDScript_wt6v8"]
+script/source = "extends CharacterBody2D
+
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+@export var speed : float = 200
+
+var is_moving : bool = false
+var dir : String = \"none\"
+
+func _ready():
+	pass
+	
+func _process(delta):
+	pass
+	
+	if Input.is_action_pressed(\"left\"):
+		velocity = Vector2.LEFT * speed
+		is_moving = true
+		dir = \"left\"
+	elif Input.is_action_pressed(\"right\"):
+		velocity = Vector2.RIGHT * speed
+		is_moving = true
+		dir = \"right\"
+	elif Input.is_action_pressed(\"up\"):
+		velocity = Vector2.UP * speed
+		is_moving = true
+		dir = \"up\"
+	elif Input.is_action_pressed(\"down\"):
+		velocity = Vector2.DOWN * speed
+		is_moving = true
+		dir = \"down\"
+	else:
+		velocity = Vector2.ZERO
+		is_moving = false
+		
+	move_and_slide()
+	
+	if is_moving == true:
+		if dir == \"left\":
+			anim.play(\"walk_left\")
+			
+		elif dir == \"right\":
+			anim.play(\"walk_right\")
+			
+		elif dir == \"up\":
+			anim.play(\"walk_back\")
+		
+		elif dir == \"down\":
+			anim.play(\"walk_front\")
+	
+	elif is_moving == false:
+		if dir == \"left\":
+			anim.play(\"idle_left\")
+			
+		elif dir == \"right\":
+			anim.play(\"idle_right\")
+			
+		elif dir == \"up\":
+			anim.play(\"idle_back\")
+			
+		elif dir == \"down\":
+			anim.play(\"idle_front\")
+	
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yl0fu"]
 atlas = ExtResource("1_ghglx")
@@ -165,26 +227,21 @@ animations = [{
 radius = 7.0
 
 [node name="Cat" type="CharacterBody2D"]
-script = ExtResource("1_gw3yj")
+script = SubResource("GDScript_wt6v8")
+speed = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_sh6n2")
-animation = &"walk_back"
+animation = &"idle_front"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_47s02")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
-script = ExtResource("2_vttaw")
-initial_node_state = NodePath("Idle")
+[node name="StateMachine" type="Node" parent="."]
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite_2d")]
-script = ExtResource("3_wrjoc")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+[node name="Idle" type="Node" parent="StateMachine"]
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite_2d")]
-script = ExtResource("4_aj1wd")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+[node name="Walk" type="Node" parent="StateMachine"]
