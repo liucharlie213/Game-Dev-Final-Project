@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmyvmpthgjjgs"]
+
+[ext_resource type="Texture2D" uid="uid://dvpi4t1hnnvdg" path="res://assets/hcuff.png" id="1_60hi8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2c4s"]
+bg_color = Color(0, 0.682353, 0.713726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wtbp"]
+bg_color = Color(0.6, 0.52549, 0.937255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtjmy"]
+bg_color = Color(0.172549, 0.564706, 0, 1)
+
+[node name="GameOverFail" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -27.5
+offset_right = 125.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_x2c4s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7wtbp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gtjmy")
+text = "RESTART"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0, 0.360784, 1)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 272.0
+offset_top = 352.0
+offset_right = 888.0
+offset_bottom = 435.0
+theme_override_font_sizes/font_size = 60
+text = "You've been caught :("
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -191.0
+offset_right = 428.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584, 544)
+scale = Vector2(0.767857, 0.767857)
+texture = ExtResource("1_60hi8")

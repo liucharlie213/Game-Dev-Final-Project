@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqh7ewukb0tq4"]
+
+[ext_resource type="Texture2D" uid="uid://cgtup6ysobr3c" path="res://assets/constr.png" id="1_6vdxs"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6vdxs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-244, -62.5, -244, -60.2, -245.1, -58.5, -251, -58.5, -259, -48.5, -261, -48.5, -261, -42.8, -265, -40.7, -265, -24, -269.3, -22.5, -272, -22.5, -272, -4.5, -258.6, 5.8, -263, 11.5, -265, 11.5, -265, 21.4, -266.7, 22.5, -269, 22.5, -269, 36.3, -261.8, 43.5, -257, 43.5, -257, 51.2, -261, 53.3, -261, 64.5, -234, 64.5, -234, 56.8, -233, 63.8, -233, 66.7, -210.8, 64.5, -208, 64.5, -208, 53.4, -211, 51.4, -211, 43.5, -207.3, 43.5, -200, 37.4, -200, 23.3, -204, 21.2, -204, 12.6, -211, 6.60001, -211, 5.5, -198.4, -3.5, -196, -3.5, -196, -21.3, -199.2, -24.5, -204, -24.5, -204, -40.2, -211, -49.2, -211, -51.6, -225, -60.7, -225, -62.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-283.5, -28.9, -286, -27.8, -286, -26.8, -288, -25.7, -288, -21.5, -279.7, -21.5, -278.6, -24)

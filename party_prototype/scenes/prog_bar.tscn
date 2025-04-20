@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://8chehy7s55hh"]
+
+[ext_resource type="Script" path="res://timer_bar.gd" id="1_tgiy3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TimerBar" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 20.0
+default_color = Color(1, 0.576471, 0, 1)
+script = ExtResource("1_tgiy3")
+
+[node name="Timer" type="Timer" parent="TimerBar"]
+autostart = true
+
+[connection signal="timeout" from="TimerBar/Timer" to="TimerBar" method="_on_timer_timeout"]

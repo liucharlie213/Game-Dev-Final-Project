@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d228ghg23rixw"]
 
-[ext_resource type="Texture2D" uid="uid://dx8p1l040vpia" path="res://assets/road.png" id="1_20so0"]
+[ext_resource type="Texture2D" uid="uid://b8cgag6frsjd6" path="res://assets/road_w_sidewalk.png" id="1_i0o83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icyj0"]
 size = Vector2(1336, 32)
@@ -8,7 +8,8 @@ size = Vector2(1336, 32)
 [node name="road" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_20so0")
+position = Vector2(2, 72)
+texture = ExtResource("1_i0o83")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 16)
