@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c43rto5vlhh8a"]
+[gd_scene load_steps=19 format=4 uid="uid://c43rto5vlhh8a"]
 
 [ext_resource type="Texture2D" uid="uid://3sr5rcdy7es" path="res://assets/Cozy_Tavern_Free/Tilesets/Tileset_Collection_Free.png" id="1_fnc86"]
 [ext_resource type="PackedScene" uid="uid://d0wvpmoysx8d7" path="res://scenes/cat.tscn" id="2_n4a4w"]
@@ -884,6 +884,11 @@ distance = 29.0
 normal = Vector2(1, 0)
 distance = -3.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bucu5"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6kxam"]
+
 [node name="Party" type="Node2D"]
 
 [node name="Party_TileMap" type="Node2D" parent="."]
@@ -912,12 +917,23 @@ position = Vector2(0, -1)
 zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
+limit_right = 496
+limit_bottom = 272
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(26, -6)
+position = Vector2(32, 2)
 shape = SubResource("WorldBoundaryShape2D_slf75")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -1)
 shape = SubResource("WorldBoundaryShape2D_1ev0v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(497, 58)
+shape = SubResource("WorldBoundaryShape2D_bucu5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(252, 272)
+shape = SubResource("WorldBoundaryShape2D_6kxam")
