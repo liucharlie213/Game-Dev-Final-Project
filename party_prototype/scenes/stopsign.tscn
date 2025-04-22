@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlii6chvvb45x"]
+
+[ext_resource type="Texture2D" uid="uid://lq4ntbat4heu" path="res://assets/stopsign.png" id="1_q6q34"]
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.605482, 0.605482)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q6q34")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-174, -154.5, -174, -152.3, -207.8, -118.5, -210, -118.5, -210, -64.7, -174, -29.7, -174, -27.5, -165, -27.5, -160, -20.5, -157, -20.5, -157, 128.5, -176, 143.5, -176, 152.5, -114, 152.5, -114, 143.5, -133, 128.5, -133, -20.5, -130, -20.5, -125, -27.5, -117.2, -27.5, -85.2, -60.5, -83, -60.5, -83, -117.3, -119, -152.4, -119, -154.5)

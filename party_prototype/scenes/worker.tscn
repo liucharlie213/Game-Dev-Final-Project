@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpcbf07x4dxvc"]
+
+[ext_resource type="Texture2D" uid="uid://c166ov1x5uyhb" path="res://assets/workman.png" id="1_cfi1n"]
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(2.60991, 2.60991)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cfi1n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-157, -39.5, -157, -37.5, -163, -32.4, -163, -18.5, -155, -12.5, -155, -11.5, -170.9, 3.5, -173.8, 3.5, -172.1, 8.7, -180, 17.7, -180, 27.4, -158.8, 28.4, -156.7, 40.5, -146.2, 40.5, -144.5, 25.2, -142.8, 40.5, -134.2, 40.5, -130, 36.3, -130, 25.3, -119.8, 24.5, -117, 24.5, -117, 11.7, -127.2, 1.5, -131.5, -11.5, -131, -21.4, -127, -24.5, -127, -33.5, -132, -37.5, -132, -39.5)

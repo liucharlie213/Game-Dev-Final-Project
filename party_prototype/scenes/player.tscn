@@ -82,8 +82,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_ki2xp")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"endless_running",
 "speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"game_over",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hkplo"]
@@ -98,9 +103,8 @@ script = ExtResource("1_s7nc5")
 unique_name_in_owner = true
 scale = Vector2(6.11212, 6.11212)
 sprite_frames = SubResource("SpriteFrames_ffep4")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame_progress = 0.949915
+animation = &"endless_running"
+autoplay = "endless_running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.23486, 27.4963)
