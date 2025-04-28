@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbjy86bpwc75o"]
+
+[ext_resource type="Texture2D" uid="uid://ddx1b13b0vgq1" path="res://assets/pickup_bubble.png" id="1_3q3i2"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3q3i2")
+
+[node name="ChatLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press Space To Chat"

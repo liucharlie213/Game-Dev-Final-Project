@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxjp3db3fq5qy"]
+[gd_scene load_steps=4 format=3 uid="uid://db03i4cxsbeum"]
 
 [ext_resource type="Texture2D" uid="uid://gi8c8l61enp0" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="1_wmna4"]
-[ext_resource type="PackedScene" uid="uid://cuw2yljx7260k" path="res://scenes/PickupArea.tscn" id="2_a62a5"]
+[ext_resource type="PackedScene" uid="uid://n14tdx0w3xc7" path="res://scenes/PickupArea.tscn" id="2_a62a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl0xl"]
 size = Vector2(22, 35)

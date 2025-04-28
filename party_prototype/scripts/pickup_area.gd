@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("pick")
+	print(body.name)
 	body.can_pickup_item = self
 	set_label_visible(true)
 	

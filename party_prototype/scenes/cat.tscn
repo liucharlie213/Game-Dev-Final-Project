@@ -10,12 +10,12 @@ script/source = "extends CharacterBody2D
 
 @export var speed : float = 100
 
+var npc0_instance : Node = null
+
+
 var is_moving : bool = false
 var dir : String = \"none\"
 var can_pickup_item: Node = null #record which item is able to be picked up
-static var is_chatting: bool = false
-static var npc_target: int = 0
-static var npc_state: int = 0
 
 func _ready():
 	pass
@@ -76,17 +76,41 @@ func _process(delta):
 	
 func _unhandled_input(_event: InputEvent) -> void:
 	#if is_chatting and Input.is_action_just_pressed(\"ui_accept\"):
-	if Input.is_action_just_pressed(\"ui_accept\"):
-		if (npc_state == 0):
-			DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc\" + str(npc_target) + \".dialogue\"), \"dialogue\")
-		elif (npc_state == 1):
-			pass
-		elif (npc_state == 2):
-			pass
+	if (Globals.in_chat_zone && Input.is_action_just_pressed(\"ui_accept\")):
+		if (Globals.npc_target == 0):
+			if (Globals.npc0_state == 0):
+				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"intro\")
+				Globals.npc0_state += 1
+			elif (Globals.npc0_state == 1):
+				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"request_cont\")
+				Globals.npc0_state += 1
+			elif (Globals.npc0_state == 2):
+				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"fin\")
+				Globals.npc0_state += 1
+			else:
+				pass
+				# show the pickpocketing option and trigger it with click		
 		else:
-			# no more options
 			pass
-		
+		#elif (Globals.npc_target == 1):
+			#if (Globals.npc1_state == 0):
+				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"intro\")
+				#Globals.npc1_state += 1
+			#elif (Globals.npc1_state == 1):
+				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"request\")
+				#Globals.npc1_state += 1
+			#elif (Globals.npc1_state == 2):
+				## show the pickpocketing option and trigger it with click		
+		#elif (Globals.npc_target == 2):
+			#if (Globals.npc2_state == 0):
+				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc2.dialogue\"), \"intro\")
+				#Globals.npc2_state += 1
+			#elif (Globals.npc2_state == 1):
+				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc2.dialogue\"), \"request\")
+				#Globals.npc2_state += 1
+			#elif (Globals.npc2_state == 2):
+				## show the pickpocketing option and trigger it with click		
+#
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yl0fu"]

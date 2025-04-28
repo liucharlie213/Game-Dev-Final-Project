@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://buqwn84murwoe" path="res://assets/Cozy_Tavern_Free/Furniture/Furniture.png" id="2_sncjp"]
 [ext_resource type="Texture2D" uid="uid://bjdaeayst2l70" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState2.png" id="3_ywfpq"]
 [ext_resource type="Texture2D" uid="uid://dyn7j4k8hunap" path="res://assets/Super_Retro_World_Interior_pack_week42/atlas_16x.png" id="4_mqnuq"]
-[ext_resource type="PackedScene" path="res://scenes/alchohol.tscn" id="6_galrs"]
+[ext_resource type="PackedScene" uid="uid://db03i4cxsbeum" path="res://scenes/alchohol.tscn" id="6_galrs"]
 [ext_resource type="Script" path="res://scripts/exit.gd" id="7_nmy0s"]
-[ext_resource type="PackedScene" uid="uid://cvjw40k4i27p2" path="res://scenes/npc1.tscn" id="8_um4yi"]
+[ext_resource type="PackedScene" uid="uid://cvjw40k4i27p2" path="res://scenes/npc0.tscn" id="8_um4yi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_str8b"]
 texture = ExtResource("1_fnc86")
@@ -2599,7 +2599,7 @@ position = Vector2(80, 140)
 [node name="Drink2" parent="Drinks" instance=ExtResource("6_galrs")]
 position = Vector2(291, 58)
 
-[node name="npc1" parent="." instance=ExtResource("8_um4yi")]
-position = Vector2(344, 118)
+[node name="npc0" parent="." instance=ExtResource("8_um4yi")]
+position = Vector2(317, 110)
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

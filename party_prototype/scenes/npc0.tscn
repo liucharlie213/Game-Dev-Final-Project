@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvjw40k4i27p2"]
+
+[ext_resource type="Script" path="res://scripts/npc0.gd" id="1_8ytq7"]
+[ext_resource type="Texture2D" uid="uid://dhw1bpqgkl2os" path="res://assets/npcs/Animated RPG Character 16x16.png" id="1_w2bnw"]
+[ext_resource type="Texture2D" uid="uid://ddx1b13b0vgq1" path="res://assets/pickup_bubble.png" id="4_e4x6n"]
+[ext_resource type="FontFile" uid="uid://cqu1lrccnm6tl" path="res://assets/fonts/monogram.ttf" id="4_y12bq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44bhi"]
+atlas = ExtResource("1_w2bnw")
+region = Rect2(0, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alsev"]
+atlas = ExtResource("1_w2bnw")
+region = Rect2(16, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmh46"]
+atlas = ExtResource("1_w2bnw")
+region = Rect2(32, 0, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gt62t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44bhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alsev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmh46")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0vej"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pb804"]
+radius = 15.0
+
+[node name="npc0" type="CharacterBody2D"]
+script = ExtResource("1_8ytq7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gt62t")
+animation = &"idle"
+frame_progress = 0.911978
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_y0vej")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+position = Vector2(0, 5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_pb804")
+
+[node name="ChatOptionLabel" type="Area2D" parent="."]
+
+[node name="ChatOptionBg" type="Sprite2D" parent="ChatOptionLabel"]
+unique_name_in_owner = true
+position = Vector2(-21, -34)
+scale = Vector2(1.34375, 1)
+texture = ExtResource("4_e4x6n")
+centered = false
+
+[node name="ChatOption" type="Label" parent="ChatOptionLabel"]
+unique_name_in_owner = true
+offset_left = -12.0
+offset_top = -27.0
+offset_right = 18.0
+offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("4_y12bq")
+theme_override_font_sizes/font_size = 0
+text = "Talk"
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
