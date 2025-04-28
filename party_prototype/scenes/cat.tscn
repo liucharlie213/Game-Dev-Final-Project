@@ -81,10 +81,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 			if (Globals.npc0_state == 0):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"intro\")
 				Globals.npc0_state += 1
-			elif (Globals.npc0_state == 1):
+			elif (Globals.npc0_state == 1 && num_drinks == 1):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"request_cont\")
 				Globals.npc0_state += 1
-			elif (Globals.npc0_state == 2):
+			elif (Globals.npc0_state == 2 && num_drinks == 1):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"fin\")
 				Globals.npc0_state += 1
 			else:
@@ -274,6 +274,7 @@ radius = 7.0
 [node name="Cat" type="CharacterBody2D"]
 collision_layer = 2
 script = SubResource("GDScript_wt6v8")
+speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
