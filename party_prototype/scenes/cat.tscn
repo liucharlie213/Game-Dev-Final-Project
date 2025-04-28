@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0wvpmoysx8d7"]
+[gd_scene load_steps=21 format=3 uid="uid://dkx8lnfp4ycyl"]
 
 [ext_resource type="Texture2D" uid="uid://nelfk8j6pgp0" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_ghglx"]
 
@@ -13,6 +13,9 @@ script/source = "extends CharacterBody2D
 var is_moving : bool = false
 var dir : String = \"none\"
 var can_pickup_item: Node = null #record which item is able to be picked up
+static var is_chatting: bool = false
+static var npc_target: int = 0
+static var npc_state: int = 0
 
 func _ready():
 	pass
@@ -71,6 +74,19 @@ func _process(delta):
 		elif dir == \"down\":
 			anim.play(\"idle_front\")
 	
+func _unhandled_input(_event: InputEvent) -> void:
+	#if is_chatting and Input.is_action_just_pressed(\"ui_accept\"):
+	if Input.is_action_just_pressed(\"ui_accept\"):
+		if (npc_state == 0):
+			DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc\" + str(npc_target) + \".dialogue\"), \"dialogue\")
+		elif (npc_state == 1):
+			pass
+		elif (npc_state == 2):
+			pass
+		else:
+			# no more options
+			pass
+		
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yl0fu"]

@@ -1,0 +1,10 @@
+~ intro
+You: Hi!
+=> END
+#
+#~ request
+#
+#=> END
+#
+#~ fin
+#=> END
