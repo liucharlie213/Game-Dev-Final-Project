@@ -2582,9 +2582,6 @@ shape = SubResource("WorldBoundaryShape2D_bucu5")
 position = Vector2(256, 272)
 shape = SubResource("WorldBoundaryShape2D_6kxam")
 
-[node name="Node2D" parent="." instance=ExtResource("6_galrs")]
-position = Vector2(291, 58)
-
 [node name="Exit" type="Area2D" parent="."]
 collision_mask = 2
 script = ExtResource("7_nmy0s")
@@ -2592,5 +2589,13 @@ script = ExtResource("7_nmy0s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(256, 263)
 shape = SubResource("RectangleShape2D_b2wpp")
+
+[node name="Drinks" type="Node2D" parent="."]
+
+[node name="Drink1" parent="Drinks" instance=ExtResource("6_galrs")]
+position = Vector2(80, 140)
+
+[node name="Drink2" parent="Drinks" instance=ExtResource("6_galrs")]
+position = Vector2(291, 58)
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
