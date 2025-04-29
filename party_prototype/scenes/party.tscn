@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://ct3aqe22xqk45"]
+[gd_scene load_steps=29 format=4 uid="uid://ct3aqe22xqk45"]
 
 [ext_resource type="Texture2D" uid="uid://3sr5rcdy7es" path="res://assets/Cozy_Tavern_Free/Tilesets/Tileset_Collection_Free.png" id="1_fnc86"]
 [ext_resource type="PackedScene" uid="uid://dkx8lnfp4ycyl" path="res://scenes/cat.tscn" id="2_n4a4w"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://db03i4cxsbeum" path="res://scenes/alchohol.tscn" id="6_galrs"]
 [ext_resource type="Script" path="res://scripts/exit.gd" id="7_nmy0s"]
 [ext_resource type="PackedScene" uid="uid://cvjw40k4i27p2" path="res://scenes/npc0.tscn" id="8_um4yi"]
+[ext_resource type="PackedScene" uid="uid://y8arknb2uek7" path="res://scenes/npc_1.tscn" id="9_yxivl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_str8b"]
 texture = ExtResource("1_fnc86")
@@ -2601,5 +2602,10 @@ position = Vector2(291, 58)
 
 [node name="npc0" parent="." instance=ExtResource("8_um4yi")]
 position = Vector2(317, 110)
+
+[node name="npc1" parent="." instance=ExtResource("9_yxivl")]
+light_mask = 2
+z_index = 10
+position = Vector2(84, 64)
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

@@ -15,8 +15,8 @@ func _process(delta):
 func _on_body_entered(body: Node2D) -> void:
 	#print(body.name + "enter")
 	Globals.in_chat_zone = true
+	Globals.npc_target = 0
 	print(Globals.npc_target)
-	#Globals.npc_target = 0
 	#Globals.npc_state = npc1_state;
 	if (Globals.npc0_state <= 2):
 		set_chat_option_visibility(true)
@@ -26,6 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_chat_detection_area_body_exited(body: Node2D) -> void:
 	#print(body.name + "exit")
 	Globals.in_chat_zone = false
+	Globals.npc_target = -1
 	if (chat_prompt.visible):
 		set_chat_option_visibility(false)
 	
