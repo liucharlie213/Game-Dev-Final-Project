@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://clgvn4wffhxkn"]
+
+[ext_resource type="Script" path="res://scripts/duck_caught.gd" id="1_rk5qi"]
+[ext_resource type="Texture2D" uid="uid://dsnmwhwqfiltx" path="res://assets/minigame_assets/rubber_duck.png" id="1_stci3"]
+[ext_resource type="Script" path="res://scripts/timer.gd" id="3_li8jb"]
+
+[node name="Duck_Caught" type="CanvasLayer"]
+script = ExtResource("1_rk5qi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 649.0
+color = Color(0.156863, 0, 0.360784, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2.0
+offset_top = -54.0
+offset_right = 1151.0
+offset_bottom = 567.0
+theme_override_font_sizes/font_size = 100
+text = "
+The duck squeaked 
+and you were
+caught!!!"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(926, 446)
+scale = Vector2(4.6875, 4.03125)
+texture = ExtResource("1_stci3")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+script = ExtResource("3_li8jb")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

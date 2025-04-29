@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://cmde774ruipu6"]
+[gd_scene load_steps=12 format=4 uid="uid://cmde774ruipu6"]
 
 [ext_resource type="Texture2D" uid="uid://bs0f8sm30cxg6" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Bitmask references 1.png" id="1_ajqls"]
 [ext_resource type="PackedScene" uid="uid://j58kfyemyxuc" path="res://scenes/cat_arm.tscn" id="2_4x72g"]
+[ext_resource type="Texture2D" uid="uid://ccl31rsqranil" path="res://assets/minigame_assets/single_dollar.png" id="3_4mggj"]
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="4_r0w5p"]
+[ext_resource type="Texture2D" uid="uid://dsnmwhwqfiltx" path="res://assets/minigame_assets/rubber_duck.png" id="5_t7tco"]
+[ext_resource type="Texture2D" uid="uid://b22qjklcjly2a" path="res://assets/minigame_assets/scissors.png" id="6_v0lob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wojgh"]
 texture = ExtResource("1_ajqls")
@@ -489,6 +493,17 @@ texture = ExtResource("1_ajqls")
 [sub_resource type="TileSet" id="TileSet_yslxw"]
 sources/0 = SubResource("TileSetAtlasSource_wojgh")
 
+[sub_resource type="GDScript" id="GDScript_pfgii"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6jyoo"]
+radius = 68.0661
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b562j"]
+radius = 12.9277
+height = 181.589
+
 [node name="Minigame" type="Node2D"]
 
 [node name="background" type="TileMapLayer" parent="."]
@@ -496,4 +511,38 @@ tile_map_data = PackedByteArray("AAAAACUAAAAAAAwAAAAAACYAAAAAAA0AAAAAACcAAAAAAA4
 tile_set = SubResource("TileSet_yslxw")
 
 [node name="CatArm" parent="." instance=ExtResource("2_4x72g")]
+z_index = 1
 position = Vector2(471, 420)
+
+[node name="dollar" type="Sprite2D" parent="."]
+position = Vector2(577, 214)
+texture = ExtResource("3_4mggj")
+script = ExtResource("4_r0w5p")
+
+[node name="Duck" type="Area2D" parent="."]
+position = Vector2(912, 222)
+script = SubResource("GDScript_pfgii")
+
+[node name="Sprite2D" type="Sprite2D" parent="Duck"]
+position = Vector2(-1.99997, -0.999996)
+scale = Vector2(6.125, 6.14062)
+texture = ExtResource("5_t7tco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Duck"]
+position = Vector2(-6, 1)
+shape = SubResource("CircleShape2D_6jyoo")
+
+[node name="Scissors" type="Area2D" parent="."]
+position = Vector2(230, 210)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scissors"]
+position = Vector2(3, -1)
+scale = Vector2(6.07812, 5.96875)
+texture = ExtResource("6_v0lob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scissors"]
+rotation = 0.523599
+shape = SubResource("CapsuleShape2D_b562j")
+
+[connection signal="body_entered" from="Duck" to="CatArm" method="_on_duck_body_entered"]
+[connection signal="body_entered" from="Scissors" to="CatArm" method="_on_scissors_body_entered"]
