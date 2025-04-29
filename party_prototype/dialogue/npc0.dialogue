@@ -1,26 +1,26 @@
 ~ intro
 YOU: Hey I'm Kitty!
-???: NPC: Hey. What’s up. I'm Bob
-Bob: … Pretty boring party huh.
+???: Hey. What’s up. I'm Bob
+BOB: … Pretty boring party huh.
 YOU: I’m having a good time :3
-Bob: Oh. Well it usually takes a couple beers for me to start enjoying things like this.
+BOB: Oh. Well it usually takes a couple beers for me to start enjoying things like this.
 => END
-#
+
 ~ request_cont
-Bob: Hey thanks. One more drink and I’ll feel great!
+BOB: Hey thanks. One more drink and I’ll feel great!
 => END
 
 ~ repeat_request_1
-Bob: Usually takes a couple beers for me to start enjoying things like this.
+BOB: Usually takes a couple beers for me to start enjoying things like this.
 => END
 
 ~ repeat_request_2
-Bob: One more drink and I’ll feel great!
+BOB: One more drink and I’ll feel great!
 => END
 
 ~ fin
-Bob: *Hick* You’re great Kitty. Let me tell you.. *Hick* (some weird secret idk LMAO)... 
+BOB: *Hick* You’re great Kitty. Let me tell you.. *Hick* (some weird secret idk LMAO)... 
 YOU: …
-Bob: Anyways.. I’ll see you around.
+BOB: Anyways.. I’ll see you around.
 => END
 

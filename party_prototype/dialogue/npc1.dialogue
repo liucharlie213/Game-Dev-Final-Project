@@ -1,0 +1,21 @@
+~ intro
+YOU: Hi! I’m Kitty.
+???: Hi!!! I’m Flug. Nice to meet you!
+FLUG: Isn’t this party great!! I love the music.
+YOU: Yeah it’s pretty awesome.
+FLUG: I know! I was so excited to come tonight! Almost everything is perfect, I just wish I had something yummy to drink.
+You: What do you like?
+FLUG: I love sweet drinks!! Or fruity ones!!
+=> END
+
+~ repeat_request
+FLUG: I love sweet drinks!! Or fruity ones!!
+=> END
+
+~ fin
+FLUG: Awww you shouldn’t have! I’m a lightweight, so one of these is perfect!
+FLUG: ...
+FLUG: *Hick* You know… what do you think about that guy over there… *Hick*... I think I might go talk to him..
+YOU: Go for it!!
+FlUG: Ahh.. *Hick* maybe later…
+=> END

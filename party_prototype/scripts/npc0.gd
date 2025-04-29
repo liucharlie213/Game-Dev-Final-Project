@@ -3,14 +3,21 @@ extends CharacterBody2D
 @onready var chat_prompt: Label = %ChatOption
 @onready var chat_bg: Sprite2D = %ChatOptionBg
 
+
+@onready var pp_prompt: Label = %PickpocketOption
+@onready var pp_bg: Sprite2D = %PickpocketBg
+
+
 func _ready():
 	$AnimatedSprite2D.play("idle")
-	set_chat_option_visibility(false);
+	set_chat_option_visibility(false)
+	set_pp_option_visibility(false)
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		#print("chatting w npc")
-		pass
+	# how to make it so that when chatting, remove talk 
+	if (Globals.is_chatting):
+		#print("hello")
+		set_chat_option_visibility(false)
 		
 func _on_body_entered(body: Node2D) -> void:
 	#print(body.name + "enter")
@@ -20,6 +27,8 @@ func _on_body_entered(body: Node2D) -> void:
 	#Globals.npc_state = npc1_state;
 	if (Globals.npc0_state <= 2):
 		set_chat_option_visibility(true)
+	elif (Globals.can_pp_npc0):
+		set_pp_option_visibility(true)
 	# show press space to chat
 	# Replace with function body.
 
@@ -29,10 +38,13 @@ func _on_chat_detection_area_body_exited(body: Node2D) -> void:
 	Globals.npc_target = -1
 	if (chat_prompt.visible):
 		set_chat_option_visibility(false)
-	
-	# show press space to chat
-	# Replace with function body.
+	elif (pp_prompt.visible):
+		set_chat_option_visibility(false)
 
 func set_chat_option_visibility(status: bool):
 	chat_prompt.visible = status
 	chat_bg.visible = status
+	
+func set_pp_option_visibility(status: bool):
+	pp_prompt.visible = status
+	pp_bg.visible = status

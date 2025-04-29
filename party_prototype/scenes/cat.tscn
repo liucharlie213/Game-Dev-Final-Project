@@ -79,6 +79,7 @@ func _process(delta):
 func _unhandled_input(_event: InputEvent) -> void:
 	#if is_chatting and Input.is_action_just_pressed(\"ui_accept\"):
 	if (Globals.in_chat_zone && Input.is_action_just_pressed(\"ui_accept\")):
+		Globals.is_chatting = true
 		if (Globals.npc_target == 0):
 			if (Globals.npc0_state == 0):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"intro\")
@@ -98,19 +99,28 @@ func _unhandled_input(_event: InputEvent) -> void:
 				else:
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"repeat_request_2\")
 			else:
-				pass
+				Globals.can_pp_npc0 = true
 				# show the pickpocketing option and trigger it with click		
+				pass
+			Globals.is_chatting = false
+
+		elif (Globals.npc_target == 1):
+			if (Globals.npc1_state == 0):
+				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"intro\")
+				Globals.npc1_state += 1
+			elif (Globals.npc1_state == 1):
+				if (num_drinks >= 1):
+					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"fin\")
+					Globals.npc1_state += 1
+					num_drinks -= 1
+				else:
+					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"repeat_request\")
+			else:
+				# show the pickpocketing option and trigger it with click
+				pass
 		else:
 			pass
-		#elif (Globals.npc_target == 1):
-			#if (Globals.npc1_state == 0):
-				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"intro\")
-				#Globals.npc1_state += 1
-			#elif (Globals.npc1_state == 1):
-				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"request\")
-				#Globals.npc1_state += 1
-			#elif (Globals.npc1_state == 2):
-				## show the pickpocketing option and trigger it with click		
+		
 		#elif (Globals.npc_target == 2):
 			#if (Globals.npc2_state == 0):
 				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc2.dialogue\"), \"intro\")
@@ -209,7 +219,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_front",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -290,6 +300,8 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_sh6n2")
 animation = &"idle_front"
 autoplay = "idle_front"
+frame = 1
+frame_progress = 0.428699
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
