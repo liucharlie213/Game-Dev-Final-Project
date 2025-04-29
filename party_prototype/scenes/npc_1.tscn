@@ -41,7 +41,7 @@ position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.8125, 0.875)
 sprite_frames = SubResource("SpriteFrames_vt6jw")
 animation = &"idle"
-frame_progress = 0.312103
+frame_progress = 0.755246
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -71,6 +71,14 @@ offset_right = 12.0
 offset_bottom = -14.0
 theme_override_fonts/font = ExtResource("4_vgrpu")
 text = "Talk"
+
+[node name="PickpocketOptionLabel" type="Area2D" parent="."]
+
+[node name="PickpocketBg" type="Sprite2D" parent="PickpocketOptionLabel"]
+
+[node name="PickpocketOption" type="Label" parent="PickpocketOptionLabel"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
