@@ -16,6 +16,7 @@ var npc0_instance : Node = null
 var is_moving : bool = false
 var dir : String = \"none\"
 var can_pickup_item: Node = null #record which item is able to be picked up
+var num_drinks: int = 0
 
 func _ready():
 	pass
@@ -24,6 +25,7 @@ func _process(delta):
 	
 	if can_pickup_item and Input.is_action_pressed(\"pick\"):
 		can_pickup_item.pickedup = true #signal the picked up area
+		num_drinks += 1
 		can_pickup_item = null
 	
 	if Input.is_action_pressed(\"left\"):
@@ -81,12 +83,20 @@ func _unhandled_input(_event: InputEvent) -> void:
 			if (Globals.npc0_state == 0):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"intro\")
 				Globals.npc0_state += 1
-			elif (Globals.npc0_state == 1 && num_drinks == 1):
-				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"request_cont\")
-				Globals.npc0_state += 1
-			elif (Globals.npc0_state == 2 && num_drinks == 1):
-				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"fin\")
-				Globals.npc0_state += 1
+			elif (Globals.npc0_state == 1):
+				if (num_drinks >= 1):
+					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"request_cont\")
+					Globals.npc0_state += 1
+					num_drinks -= 1
+				else:
+					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"repeat_request_1\")
+			elif (Globals.npc0_state == 2):
+				if (num_drinks >= 1):
+					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"fin\")
+					Globals.npc0_state += 1
+					num_drinks -= 1
+				else:
+					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"repeat_request_2\")
 			else:
 				pass
 				# show the pickpocketing option and trigger it with click		
@@ -274,7 +284,6 @@ radius = 7.0
 [node name="Cat" type="CharacterBody2D"]
 collision_layer = 2
 script = SubResource("GDScript_wt6v8")
-speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)

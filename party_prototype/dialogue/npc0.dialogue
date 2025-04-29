@@ -7,7 +7,15 @@ Bob: Oh. Well it usually takes a couple beers for me to start enjoying things li
 => END
 #
 ~ request_cont
-Bob: Hey thanks. One more and I’ll feel great!
+Bob: Hey thanks. One more drink and I’ll feel great!
+=> END
+
+~ repeat_request_1
+Bob: Usually takes a couple beers for me to start enjoying things like this.
+=> END
+
+~ repeat_request_2
+Bob: One more drink and I’ll feel great!
 => END
 
 ~ fin
