@@ -72,13 +72,22 @@ offset_bottom = -14.0
 theme_override_fonts/font = ExtResource("4_vgrpu")
 text = "Talk"
 
-[node name="PickpocketOptionLabel" type="Area2D" parent="."]
+[node name="PickpocketOptionLabel2" type="Area2D" parent="."]
 
-[node name="PickpocketBg" type="Sprite2D" parent="PickpocketOptionLabel"]
+[node name="PickpocketBg" type="Sprite2D" parent="PickpocketOptionLabel2"]
+unique_name_in_owner = true
+position = Vector2(0, -19)
+scale = Vector2(2.40625, 1)
+texture = ExtResource("3_bkbqx")
 
-[node name="PickpocketOption" type="Label" parent="PickpocketOptionLabel"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="PickpocketOption" type="Label" parent="PickpocketOptionLabel2"]
+unique_name_in_owner = true
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 32.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("4_vgrpu")
+text = "Pickpocket"
 
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]

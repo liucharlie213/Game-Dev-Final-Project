@@ -9,6 +9,7 @@ extends CharacterBody2D
 func _ready():
 	$AnimatedSprite2D.play("idle")
 	set_chat_option_visibility(false);
+	set_pp_option_visibility(false)
 	#
 #func _process(delta: float) -> void:
 	#if (Globals.is_chatting):
@@ -22,6 +23,7 @@ func _on_chat_detection_area_body_entered(body: Node2D) -> void:
 		set_chat_option_visibility(true)
 	if (Globals.can_pp_npc1):
 		set_pp_option_visibility(true)
+		body.can_pickpocket = self
 
 func _on_chat_detection_area_body_exited(body: Node2D) -> void:
 	print(body.name + " exit")

@@ -29,6 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 		set_chat_option_visibility(true)
 	if (Globals.can_pp_npc0):
 		set_pp_option_visibility(true)
+		body.can_pickpocket = self
 	# show press space to chat
 	# Replace with function body.
 

@@ -16,6 +16,7 @@ var npc0_instance : Node = null
 var is_moving : bool = false
 var dir : String = \"none\"
 var can_pickup_item: Node = null #record which item is able to be picked up
+var can_pickpocket: Node = null
 var num_drinks: int = 0
 
 func _ready():
@@ -36,6 +37,9 @@ func _process(delta):
 		can_pickup_item.pickedup = true #signal the picked up area
 		num_drinks += 1
 		can_pickup_item = null
+	
+	if can_pickpocket and Input.is_action_pressed(\"pickpocket\"):
+		get_tree().change_scene_to_file(\"res://scenes/minigame.tscn\")
 	
 	if Input.is_action_pressed(\"left\"):
 		velocity = Vector2.LEFT * speed
