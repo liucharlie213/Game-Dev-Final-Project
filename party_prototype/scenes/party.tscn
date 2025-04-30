@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://ct3aqe22xqk45"]
+[gd_scene load_steps=45 format=4 uid="uid://ct3aqe22xqk45"]
 
 [ext_resource type="Texture2D" uid="uid://3sr5rcdy7es" path="res://assets/Cozy_Tavern_Free/Tilesets/Tileset_Collection_Free.png" id="1_fnc86"]
 [ext_resource type="AudioStream" uid="uid://ck66gcoyraliv" path="res://partymusic.mp3" id="1_j0w8q"]
@@ -9,11 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://db03i4cxsbeum" path="res://scenes/alchohol.tscn" id="6_galrs"]
 [ext_resource type="Script" path="res://scripts/exit.gd" id="7_nmy0s"]
 [ext_resource type="PackedScene" uid="uid://cvjw40k4i27p2" path="res://scenes/npc0.tscn" id="8_um4yi"]
+[ext_resource type="PackedScene" uid="uid://cvxr2p7vvrd0c" path="res://scenes/cocktail2.tscn" id="9_5hd81"]
 [ext_resource type="PackedScene" uid="uid://y8arknb2uek7" path="res://scenes/npc_1.tscn" id="9_yxivl"]
 [ext_resource type="PackedScene" path="res://scenes/monke.tscn" id="10_4v8n3"]
+[ext_resource type="PackedScene" uid="uid://cc88i0uutc48g" path="res://scenes/beer2.tscn" id="10_hcvr5"]
+[ext_resource type="PackedScene" uid="uid://v726y73iuvrd" path="res://scenes/beer.tscn" id="10_luix6"]
 [ext_resource type="PackedScene" path="res://scenes/redcup.tscn" id="11_3rklu"]
 [ext_resource type="PackedScene" path="res://scenes/soda3.tscn" id="12_m3fmg"]
 [ext_resource type="PackedScene" path="res://scenes/soda2.tscn" id="13_14ye6"]
+[ext_resource type="PackedScene" uid="uid://bbagi0ivi5bm7" path="res://scenes/cocktail.tscn" id="13_rhj5k"]
 [ext_resource type="PackedScene" path="res://scenes/pizza.tscn" id="14_7kf6s"]
 [ext_resource type="PackedScene" path="res://scenes/burger.tscn" id="15_jat03"]
 [ext_resource type="PackedScene" path="res://scenes/npc_4.tscn" id="16_4vvq8"]
@@ -2618,11 +2622,25 @@ shape = SubResource("RectangleShape2D_b2wpp")
 
 [node name="Drinks" type="Node2D" parent="."]
 
+[node name="Cocktail" parent="Drinks" instance=ExtResource("13_rhj5k")]
+z_index = 10
+position = Vector2(272, 184)
+scale = Vector2(0.392, 0.392)
+
+[node name="Cocktail2" parent="Drinks" instance=ExtResource("9_5hd81")]
+position = Vector2(324, 60)
+
+[node name="Beer2" parent="Drinks" instance=ExtResource("10_hcvr5")]
+position = Vector2(221, 57)
+
+[node name="Beer" parent="Drinks" instance=ExtResource("10_luix6")]
+position = Vector2(153, 59)
+
 [node name="Drink1" parent="Drinks" instance=ExtResource("6_galrs")]
 position = Vector2(80, 140)
 
 [node name="Drink2" parent="Drinks" instance=ExtResource("6_galrs")]
-position = Vector2(291, 58)
+position = Vector2(283, 58)
 
 [node name="npc0" parent="." instance=ExtResource("8_um4yi")]
 position = Vector2(317, 110)
@@ -2656,14 +2674,14 @@ position = Vector2(-19.1846, -15.9872)
 position = Vector2(-729.016, -262.19)
 
 [node name="Area2D3" parent="party_props/Area2D2" instance=ExtResource("13_14ye6")]
-position = Vector2(-687.45, -268.585)
+position = Vector2(-617.106, -252.598)
 
 [node name="Area2D" parent="party_props/Area2D2/Area2D3" instance=ExtResource("14_7kf6s")]
-position = Vector2(239.808, 28.777)
+position = Vector2(159.872, 12.7898)
 scale = Vector2(1.5344, 1.5344)
 
 [node name="Area2D2" parent="party_props/Area2D2/Area2D3" instance=ExtResource("14_7kf6s")]
-position = Vector2(578.737, 482.814)
+position = Vector2(511.591, 470.024)
 scale = Vector2(1.42192, 1.42192)
 
 [node name="red_cup3" parent="party_props" instance=ExtResource("11_3rklu")]
@@ -2678,7 +2696,7 @@ position = Vector2(-15.3062, 5.10202)
 scale = Vector2(1.09796, 1.09796)
 
 [node name="red_cup4" parent="party_props" instance=ExtResource("11_3rklu")]
-position = Vector2(58.6734, -321.429)
+position = Vector2(94.3878, -326.531)
 scale = Vector2(1.00061, 1.00061)
 
 [node name="red_cup5" parent="party_props" instance=ExtResource("11_3rklu")]
@@ -2709,12 +2727,12 @@ energy = 0.5
 blend_mode = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
-position = Vector2(183.516, 8.60232)
+position = Vector2(183.516, 2.86743)
 color = Color(0.855051, 0.558813, 0.889621, 1)
 texture = SubResource("GradientTexture2D_t4ulo")
 
 [node name="PointLight2D2" type="PointLight2D" parent="DirectionalLight2D"]
-position = Vector2(20.0721, 10.036)
+position = Vector2(22.9395, 7.16858)
 color = Color(0.855051, 0.558813, 0.889621, 1)
 texture = SubResource("GradientTexture2D_t4ulo")
 

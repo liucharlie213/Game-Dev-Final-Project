@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc88i0uutc48g"]
+
+[ext_resource type="Texture2D" uid="uid://ufyuxguo44ig" path="res://assets/drinks/Drinks Beer.png" id="1_m282h"]
+[ext_resource type="PackedScene" uid="uid://n14tdx0w3xc7" path="res://scenes/PickupArea.tscn" id="2_jfhow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7tgeo"]
+radius = 24.0208
+
+[node name="Beer2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.0894444, 0.0894444)
+texture = ExtResource("1_m282h")
+
+[node name="PickupZone" parent="." instance=ExtResource("2_jfhow")]
+position = Vector2(37, -34)
+scale = Vector2(0.842405, 0.842405)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
+position = Vector2(-43.9219, 40.3606)
+shape = SubResource("CircleShape2D_7tgeo")
