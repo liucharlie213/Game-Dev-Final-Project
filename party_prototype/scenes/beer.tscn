@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8gr4ioveig5s"]
+[gd_scene load_steps=4 format=3 uid="uid://v726y73iuvrd"]
 
-[ext_resource type="Texture2D" uid="uid://dar1qghw72oy7" path="res://assets/party_props/beer.png" id="1_pa1lk"]
+[ext_resource type="Texture2D" uid="uid://bvnwyp53nvje2" path="res://assets/drinks/WEBP to PNG Beer (1).png" id="1_wrcie"]
+[ext_resource type="PackedScene" uid="uid://n14tdx0w3xc7" path="res://scenes/PickupArea.tscn" id="2_ain64"]
 
-[node name="Area2D" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5lusg"]
+radius = 18.4184
+
+[node name="Beer" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 0.946429)
-texture = ExtResource("1_pa1lk")
+position = Vector2(1, 0)
+scale = Vector2(0.0716346, 0.0716346)
+texture = ExtResource("1_wrcie")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(6.5, -17.8, 4.2, -18, -9.5, -18, -9.5, -17, -14.2, -13, -15.5, -13, -15.5, 11, -11.5, 14, -11.5, 16, 7.5, 16, 15.5, 6, 15.5, -11.2, 6.5, -16.2)
+[node name="PickupZone" parent="." instance=ExtResource("2_ain64")]
+position = Vector2(41, -38)
+scale = Vector2(0.922991, 0.922991)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
+position = Vector2(-44.4208, 41.1705)
+shape = SubResource("CircleShape2D_5lusg")

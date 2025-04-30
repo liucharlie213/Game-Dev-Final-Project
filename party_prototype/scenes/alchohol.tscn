@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://gi8c8l61enp0" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_SmallItems.png" id="1_wmna4"]
 [ext_resource type="PackedScene" uid="uid://n14tdx0w3xc7" path="res://scenes/PickupArea.tscn" id="2_a62a5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl0xl"]
-size = Vector2(22, 35)
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3meu"]
+radius = 18.0278
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,4 +18,4 @@ region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-43, 35)
-shape = SubResource("RectangleShape2D_yl0xl")
+shape = SubResource("CircleShape2D_f3meu")

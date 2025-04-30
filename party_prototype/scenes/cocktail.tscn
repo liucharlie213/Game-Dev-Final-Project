@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbagi0ivi5bm7"]
+
+[ext_resource type="Texture2D" uid="uid://s02x078vo5sq" path="res://assets/drinks/Cocktail Drink.png" id="1_8wbbj"]
+[ext_resource type="PackedScene" uid="uid://n14tdx0w3xc7" path="res://scenes/PickupArea.tscn" id="3_ulykk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dewa3"]
+radius = 17.3795
+
+[node name="Cocktail" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 9.53674e-07)
+scale = Vector2(0.189204, 0.187762)
+texture = ExtResource("1_8wbbj")
+
+[node name="PickupZone" parent="." instance=ExtResource("3_ulykk")]
+position = Vector2(123, -105)
+scale = Vector2(2.76443, 2.68016)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
+position = Vector2(-44.4938, 39.5499)
+shape = SubResource("CircleShape2D_dewa3")
