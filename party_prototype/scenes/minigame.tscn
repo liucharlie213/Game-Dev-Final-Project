@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cmde774ruipu6"]
+[gd_scene load_steps=19 format=4 uid="uid://cmde774ruipu6"]
 
 [ext_resource type="Texture2D" uid="uid://bs0f8sm30cxg6" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Bitmask references 1.png" id="1_ajqls"]
 [ext_resource type="AudioStream" uid="uid://ck66gcoyraliv" path="res://partymusic.mp3" id="1_u7pgb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="4_r0w5p"]
 [ext_resource type="Texture2D" uid="uid://dsnmwhwqfiltx" path="res://assets/minigame_assets/rubber_duck.png" id="5_t7tco"]
 [ext_resource type="Texture2D" uid="uid://b22qjklcjly2a" path="res://assets/minigame_assets/scissors.png" id="6_v0lob"]
+[ext_resource type="FontFile" uid="uid://cqu1lrccnm6tl" path="res://assets/fonts/monogram.ttf" id="8_dbly3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wojgh"]
 texture = ExtResource("1_ajqls")
@@ -505,6 +506,23 @@ radius = 68.0661
 radius = 12.9277
 height = 181.589
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qyooy"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_22u0d"]
+normal = Vector2(0, 1)
+distance = -1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2jnkm"]
+distance = -268.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ykwbw"]
+normal = Vector2(-0.999876, 0.0157461)
+distance = -1119.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f062"]
+size = Vector2(422, 123.5)
+
 [node name="Minigame" type="Node2D"]
 
 [node name="party_music" type="AudioStreamPlayer" parent="."]
@@ -550,5 +568,40 @@ texture = ExtResource("6_v0lob")
 rotation = 0.523599
 shape = SubResource("CapsuleShape2D_b562j")
 
+[node name="borders" type="StaticBody2D" parent="."]
+position = Vector2(30, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders"]
+position = Vector2(-29, 7)
+shape = SubResource("WorldBoundaryShape2D_qyooy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="borders"]
+position = Vector2(98, 3)
+shape = SubResource("WorldBoundaryShape2D_22u0d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="borders"]
+position = Vector2(261, 391)
+shape = SubResource("WorldBoundaryShape2D_2jnkm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="borders"]
+shape = SubResource("WorldBoundaryShape2D_ykwbw")
+
+[node name="win" type="Area2D" parent="."]
+position = Vector2(564, 556)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win"]
+position = Vector2(10, 25.75)
+shape = SubResource("RectangleShape2D_4f062")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 344.0
+offset_top = 40.0
+offset_right = 850.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("8_dbly3")
+theme_override_font_sizes/font_size = 50
+text = "Drag the money towards you!"
+
 [connection signal="body_entered" from="Duck" to="CatArm" method="_on_duck_body_entered"]
 [connection signal="body_entered" from="Scissors" to="CatArm" method="_on_scissors_body_entered"]
+[connection signal="area_entered" from="win" to="dollar" method="_on_win_area_entered"]

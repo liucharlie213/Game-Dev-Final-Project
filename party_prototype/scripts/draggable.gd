@@ -19,3 +19,7 @@ func _input(event):
 				mouse_offset = get_global_mouse_position() - global_position
 		else:
 			is_dragging = false
+
+
+func _on_win_area_entered(area: Area2D) -> void:
+	print('win') # Replace with function body.
