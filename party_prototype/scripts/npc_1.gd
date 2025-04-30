@@ -18,12 +18,13 @@ func _ready():
 func _on_chat_detection_area_body_entered(body: Node2D) -> void:
 	print(body.name + " enter")
 	Globals.in_chat_zone = true
+	Globals.in_pp_npc1 = true
 	Globals.npc_target = 1
 	if (Globals.npc1_state <= 1):
 		set_chat_option_visibility(true)
 	if (Globals.can_pp_npc1):
 		set_pp_option_visibility(true)
-		body.can_pickpocket = self
+		#body.can_pickpocket = self
 
 func _on_chat_detection_area_body_exited(body: Node2D) -> void:
 	print(body.name + " exit")

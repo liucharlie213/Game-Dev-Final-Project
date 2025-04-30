@@ -16,21 +16,23 @@ var npc0_instance : Node = null
 var is_moving : bool = false
 var dir : String = \"none\"
 var can_pickup_item: Node = null #record which item is able to be picked up
-var can_pickpocket: Node = null
+#var can_pickpocket: Node = null
 var num_drinks: int = 0
 
 func _ready():
 	pass
 	
 func _process(delta):
-	
 	if Globals.can_pp_npc0 && Globals.in_pp_npc0 && Input.is_action_just_pressed(\"pickpocket\"):
-		Globals.play_pp_npc0 = true
 		print(\"want to pickpocket npc0\")
+		Globals.play_pp_npc0 = true
+		get_tree().change_scene_to_file(\"res://scenes/minigame.tscn\")
+		#print(\"want to pickpocket npc0\")
 		#trigger minigame in party scene, using global state var
 	if Globals.can_pp_npc1 && Globals.in_pp_npc1 && Input.is_action_just_pressed(\"pickpocket\"):
-		Globals.play_pp_npc1 = true
 		print(\"want to pickpocket npc1\")
+		Globals.play_pp_npc1 = true
+		get_tree().change_scene_to_file(\"res://scenes/minigame.tscn\")
 		#trigger minigame for npc1 in pary scene, using global state var
 	
 	if can_pickup_item and Input.is_action_pressed(\"pick\"):
@@ -38,8 +40,8 @@ func _process(delta):
 		num_drinks += 1
 		can_pickup_item = null
 	
-	if can_pickpocket and Input.is_action_pressed(\"pickpocket\"):
-		get_tree().change_scene_to_file(\"res://scenes/minigame.tscn\")
+	#if can_pickpocket and Input.is_action_pressed(\"pickpocket\"):
+		#get_tree().change_scene_to_file(\"res://scenes/minigame.tscn\")
 	
 	if Input.is_action_pressed(\"left\"):
 		velocity = Vector2.LEFT * speed
@@ -94,6 +96,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if (Globals.in_chat_zone && Input.is_action_just_pressed(\"ui_accept\")):
 		Globals.is_chatting = true
 		if (Globals.npc_target == 0):
+			#print(\"npc_0 state: \" + str(Globals.npc0_state))
 			if (Globals.npc0_state == 0):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"intro\")
 				Globals.npc0_state += 1
@@ -110,6 +113,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 					Globals.npc0_state += 1
 					num_drinks -= 1
 					Globals.can_pp_npc0 = true		
+					#print(\"npc0 can pickpcket now\")
 				else:
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"repeat_request_2\")
 			#else:
