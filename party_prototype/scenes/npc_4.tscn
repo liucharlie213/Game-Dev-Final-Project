@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://htxbljw5dw3g"]
+
+[ext_resource type="Texture2D" uid="uid://bje3qgrfiv2pl" path="res://assets/npcs/M_06.png" id="1_df1ak"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_diqrv"]
+
+[node name="npc_4" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_df1ak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.525316, 0.525316)
+shape = SubResource("CapsuleShape2D_diqrv")

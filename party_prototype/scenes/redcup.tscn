@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://mu40h31te7jy"]
+
+[ext_resource type="Texture2D" uid="uid://boi8kcoywb6cc" path="res://assets/redCup0000 (1).png" id="1_d65lx"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d65lx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.682478, 0.682478)
+polygon = PackedVector2Array(14, -14.9, -4.4, -16, -6, -16, -6, -14.3, -12, -11.2, -12, -4.8, -10, -3.8, -10, 7.6, -5, 15.6, 11.7, 16, 15.7, -5, 16, -9.2, 14, -12.5)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkx8lnfp4ycyl"]
+[gd_scene load_steps=23 format=3 uid="uid://dkx8lnfp4ycyl"]
 
 [ext_resource type="Texture2D" uid="uid://nelfk8j6pgp0" path="res://assets/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_ghglx"]
 
@@ -306,6 +306,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_47s02"]
 radius = 7.0
 
+[sub_resource type="Gradient" id="Gradient_s2on3"]
+offsets = PackedFloat32Array(0, 0.00649351, 0.62987)
+colors = PackedColorArray(0.757576, 0.757576, 0.757576, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t4ulo"]
+gradient = SubResource("Gradient_s2on3")
+fill = 1
+fill_from = Vector2(0.509174, 0.5)
+
 [node name="Cat" type="CharacterBody2D"]
 collision_layer = 2
 script = SubResource("GDScript_wt6v8")
@@ -327,3 +336,8 @@ shape = SubResource("CircleShape2D_47s02")
 [node name="Idle" type="Node" parent="StateMachine"]
 
 [node name="Walk" type="Node" parent="StateMachine"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -8)
+color = Color(0.518221, 0.003368, 0.900336, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
