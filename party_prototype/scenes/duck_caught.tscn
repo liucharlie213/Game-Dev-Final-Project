@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://clgvn4wffhxkn"]
+[gd_scene load_steps=4 format=3 uid="uid://bb1ji16ia8un"]
 
 [ext_resource type="Script" path="res://scripts/duck_caught.gd" id="1_rk5qi"]
 [ext_resource type="Texture2D" uid="uid://dsnmwhwqfiltx" path="res://assets/minigame_assets/rubber_duck.png" id="1_stci3"]
