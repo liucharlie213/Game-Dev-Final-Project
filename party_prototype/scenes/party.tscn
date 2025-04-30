@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=4 uid="uid://ct3aqe22xqk45"]
+[gd_scene load_steps=41 format=4 uid="uid://ct3aqe22xqk45"]
 
 [ext_resource type="Texture2D" uid="uid://3sr5rcdy7es" path="res://assets/Cozy_Tavern_Free/Tilesets/Tileset_Collection_Free.png" id="1_fnc86"]
+[ext_resource type="AudioStream" uid="uid://ck66gcoyraliv" path="res://partymusic.mp3" id="1_j0w8q"]
 [ext_resource type="PackedScene" uid="uid://dkx8lnfp4ycyl" path="res://scenes/cat.tscn" id="2_n4a4w"]
 [ext_resource type="Texture2D" uid="uid://buqwn84murwoe" path="res://assets/Cozy_Tavern_Free/Furniture/Furniture.png" id="2_sncjp"]
 [ext_resource type="Texture2D" uid="uid://bjdaeayst2l70" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState2.png" id="3_ywfpq"]
@@ -2553,6 +2554,11 @@ fill = 1
 fill_from = Vector2(0.509174, 0.5)
 
 [node name="Party" type="Node2D"]
+
+[node name="party_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_j0w8q")
+autoplay = true
+parameters/looping = true
 
 [node name="Party_TileMap" type="Node2D" parent="."]
 
