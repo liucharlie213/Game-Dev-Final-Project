@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp11w8q7242rk"]
+
+[ext_resource type="Texture2D" uid="uid://ddkohr528sk6j" path="res://assets/party_props/soda3.png" id="1_dwihi"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwihi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, -20, -8, -20, -8, -17.8, -10, -15.8, -10, 18.8, -9, 19.8, 9.2, 20, 10, 18.4, 10, -15.8, 8, -17.8)

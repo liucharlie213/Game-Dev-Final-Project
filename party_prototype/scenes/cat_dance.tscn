@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dowk2wj5l7pam"]
+
+[ext_resource type="Texture2D" uid="uid://bblg3rnvfjxhm" path="res://assets/npcs/Dance.png" id="1_nxkrw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shpiw"]
+atlas = ExtResource("1_nxkrw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg1jm"]
+atlas = ExtResource("1_nxkrw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beloe"]
+atlas = ExtResource("1_nxkrw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6rxm"]
+atlas = ExtResource("1_nxkrw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujqxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shpiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg1jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beloe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6rxm")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ym70i"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ujqxu")
+animation = &"dance"
+autoplay = "dance"
+frame_progress = 0.580565
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ym70i")

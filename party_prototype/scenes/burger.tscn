@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://fcd06v2i1a7q"]
+
+[ext_resource type="Texture2D" uid="uid://drw3shfxunkon" path="res://assets/party_props/burger.png" id="1_fesej"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fesej")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5, -14.9, -5, -13, -6.3, -12.5, -9.1, -12.5, -14.1, -4.5, -16.4, -4.5, -15, 3.8, -15, 7.5, -10, 11.4, -10, 13.5, 9.1, 13.5, 14.1, 5.5, 16.4, 5.5, 15, -2.8, 15, -6.5, 10, -10.5, 10, -12.2)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdn2ryfpvi5xs"]
+
+[ext_resource type="Texture2D" uid="uid://cb75ixktampmv" path="res://assets/party_props/pizza.png" id="1_en1dy"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1.00578)
+texture = ExtResource("1_en1dy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(10.5, -11.1, 1.5, -12.9, 1.5, -10.8, -16, -2.5, -16.5, 3, -14.5, 6.1, -14.5, 8.1, 0.299999, 11.5, 11.5, 11.5, 14.5, 7.5, 16.5, 7.5, 16.5, 5.1, 15.5, -0.8, 15.5, -4.3, 10.5, -9.3)

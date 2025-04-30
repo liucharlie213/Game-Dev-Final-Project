@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=4 uid="uid://ct3aqe22xqk45"]
+[gd_scene load_steps=41 format=4 uid="uid://ct3aqe22xqk45"]
 
 [ext_resource type="Texture2D" uid="uid://3sr5rcdy7es" path="res://assets/Cozy_Tavern_Free/Tilesets/Tileset_Collection_Free.png" id="1_fnc86"]
+[ext_resource type="AudioStream" uid="uid://ck66gcoyraliv" path="res://partymusic.mp3" id="1_j0w8q"]
 [ext_resource type="PackedScene" uid="uid://dkx8lnfp4ycyl" path="res://scenes/cat.tscn" id="2_n4a4w"]
 [ext_resource type="Texture2D" uid="uid://buqwn84murwoe" path="res://assets/Cozy_Tavern_Free/Furniture/Furniture.png" id="2_sncjp"]
 [ext_resource type="Texture2D" uid="uid://bjdaeayst2l70" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState2.png" id="3_ywfpq"]
@@ -9,6 +10,15 @@
 [ext_resource type="Script" path="res://scripts/exit.gd" id="7_nmy0s"]
 [ext_resource type="PackedScene" uid="uid://cvjw40k4i27p2" path="res://scenes/npc0.tscn" id="8_um4yi"]
 [ext_resource type="PackedScene" uid="uid://y8arknb2uek7" path="res://scenes/npc_1.tscn" id="9_yxivl"]
+[ext_resource type="PackedScene" uid="uid://jv31glrhetpp" path="res://scenes/monke.tscn" id="10_4v8n3"]
+[ext_resource type="PackedScene" uid="uid://mu40h31te7jy" path="res://scenes/redcup.tscn" id="11_3rklu"]
+[ext_resource type="PackedScene" uid="uid://cp11w8q7242rk" path="res://scenes/soda3.tscn" id="12_m3fmg"]
+[ext_resource type="PackedScene" uid="uid://sgccp614bqar" path="res://scenes/soda2.tscn" id="13_14ye6"]
+[ext_resource type="PackedScene" uid="uid://cdn2ryfpvi5xs" path="res://scenes/pizza.tscn" id="14_7kf6s"]
+[ext_resource type="PackedScene" uid="uid://fcd06v2i1a7q" path="res://scenes/burger.tscn" id="15_jat03"]
+[ext_resource type="PackedScene" uid="uid://htxbljw5dw3g" path="res://scenes/npc_4.tscn" id="16_4vvq8"]
+[ext_resource type="PackedScene" uid="uid://dowk2wj5l7pam" path="res://scenes/cat_dance.tscn" id="16_wfkeq"]
+[ext_resource type="PackedScene" uid="uid://c58jbedwly4is" path="res://scenes/idle_drinker.tscn" id="17_pe13l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_str8b"]
 texture = ExtResource("1_fnc86")
@@ -2534,7 +2544,21 @@ distance = -10.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2wpp"]
 size = Vector2(32, 20)
 
+[sub_resource type="Gradient" id="Gradient_s2on3"]
+offsets = PackedFloat32Array(0, 0.00649351, 0.62987)
+colors = PackedColorArray(0.757576, 0.757576, 0.757576, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t4ulo"]
+gradient = SubResource("Gradient_s2on3")
+fill = 1
+fill_from = Vector2(0.509174, 0.5)
+
 [node name="Party" type="Node2D"]
+
+[node name="party_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_j0w8q")
+autoplay = true
+parameters/looping = true
 
 [node name="Party_TileMap" type="Node2D" parent="."]
 
@@ -2602,9 +2626,136 @@ position = Vector2(291, 58)
 
 [node name="npc0" parent="." instance=ExtResource("8_um4yi")]
 position = Vector2(317, 110)
+scale = Vector2(1.17475, 1.17475)
 
 [node name="npc1" parent="." instance=ExtResource("9_yxivl")]
 light_mask = 2
 position = Vector2(84, 64)
+scale = Vector2(1.08688, 1.08688)
+
+[node name="npc2 - monke" parent="." instance=ExtResource("10_4v8n3")]
+position = Vector2(422, 192)
+scale = Vector2(0.402499, 0.402499)
+
+[node name="party_props" parent="." instance=ExtResource("11_3rklu")]
+position = Vector2(163, 189)
+scale = Vector2(0.392, 0.392)
+
+[node name="Area2D" parent="party_props" instance=ExtResource("12_m3fmg")]
+position = Vector2(459.184, -341.837)
+scale = Vector2(0.797832, 0.797832)
+
+[node name="Area2D2" parent="party_props" instance=ExtResource("12_m3fmg")]
+position = Vector2(609.694, -127.551)
+scale = Vector2(0.797832, 0.797832)
+
+[node name="Area2D" parent="party_props/Area2D2" instance=ExtResource("13_14ye6")]
+position = Vector2(-19.1846, -15.9872)
+
+[node name="Area2D2" parent="party_props/Area2D2" instance=ExtResource("13_14ye6")]
+position = Vector2(-729.016, -262.19)
+
+[node name="Area2D3" parent="party_props/Area2D2" instance=ExtResource("13_14ye6")]
+position = Vector2(-687.45, -268.585)
+
+[node name="Area2D" parent="party_props/Area2D2/Area2D3" instance=ExtResource("14_7kf6s")]
+position = Vector2(239.808, 28.777)
+scale = Vector2(1.5344, 1.5344)
+
+[node name="Area2D2" parent="party_props/Area2D2/Area2D3" instance=ExtResource("14_7kf6s")]
+position = Vector2(578.737, 482.814)
+scale = Vector2(1.42192, 1.42192)
+
+[node name="red_cup3" parent="party_props" instance=ExtResource("11_3rklu")]
+position = Vector2(43.3673, -329.082)
+
+[node name="red_cup1" parent="party_props" instance=ExtResource("11_3rklu")]
+position = Vector2(-17.8572, -10.2041)
+scale = Vector2(1.00061, 1.00061)
+
+[node name="Area2D3" parent="party_props" instance=ExtResource("15_jat03")]
+position = Vector2(-15.3062, 5.10202)
+scale = Vector2(1.09796, 1.09796)
+
+[node name="red_cup4" parent="party_props" instance=ExtResource("11_3rklu")]
+position = Vector2(58.6734, -321.429)
+scale = Vector2(1.00061, 1.00061)
+
+[node name="red_cup5" parent="party_props" instance=ExtResource("11_3rklu")]
+position = Vector2(466.837, -323.98)
+scale = Vector2(1.00061, 1.00061)
+
+[node name="red_cup6" parent="party_props" instance=ExtResource("11_3rklu")]
+position = Vector2(594.388, -114.796)
+scale = Vector2(1.00061, 1.00061)
+
+[node name="npc4" parent="." instance=ExtResource("16_4vvq8")]
+position = Vector2(235, 74)
+scale = Vector2(1.02208, 1.02208)
+
+[node name="npc3 - dancecat" parent="." instance=ExtResource("16_wfkeq")]
+position = Vector2(451, 173)
+scale = Vector2(0.66623, 0.66623)
+
+[node name="npc5" parent="." instance=ExtResource("17_pe13l")]
+position = Vector2(144, 185)
+scale = Vector2(0.697487, 0.697487)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(144, 185)
+scale = Vector2(0.697487, 0.697487)
+color = Color(0.129412, 0.054902, 0.556863, 1)
+energy = 0.5
+blend_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(183.516, 8.60232)
+color = Color(0.855051, 0.558813, 0.889621, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D2" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(20.0721, 10.036)
+color = Color(0.855051, 0.558813, 0.889621, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D3" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(319.719, 32.9755)
+color = Color(0.855051, 0.558813, 0.889621, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D4" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(367.032, -60.2162)
+color = Color(0.855051, 0.558813, 0.889621, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D5" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(-88.8906, -64.5174)
+color = Color(0.855051, 0.558813, 0.889621, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D6" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(-87.4569, -172.046)
+color = Color(0.47451, 0.188235, 0.776471, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D7" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(246.6, -107.529)
+color = Color(0.47451, 0.188235, 0.776471, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D8" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(397.14, 7.1686)
+color = Color(0.47451, 0.188235, 0.776471, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D9" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(440.152, -17.2046)
+color = Color(0.47451, 0.188235, 0.776471, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
+
+[node name="PointLight2D10" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(129.035, -157.709)
+color = Color(0.47451, 0.188235, 0.776471, 1)
+texture = SubResource("GradientTexture2D_t4ulo")
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
