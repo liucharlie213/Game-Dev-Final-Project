@@ -521,7 +521,7 @@ normal = Vector2(-0.999876, 0.0157461)
 distance = -1119.9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkn1g"]
-size = Vector2(306, 136)
+size = Vector2(1351, 260)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81016"]
 size = Vector2(227, 99)
@@ -597,7 +597,7 @@ text = "Drag the money towards you!"
 position = Vector2(576, 552)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropSpot"]
-position = Vector2(5, 14)
+position = Vector2(42.5, 28)
 shape = SubResource("RectangleShape2D_hkn1g")
 
 [node name="dollar" type="Sprite2D" parent="."]

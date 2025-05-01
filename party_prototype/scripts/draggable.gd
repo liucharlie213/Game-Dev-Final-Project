@@ -27,6 +27,13 @@ func _input(event):
 			for drop_spot in drop_spots:
 				if drop_spot.has_overlapping_areas() and drop_spot.get_overlapping_areas().has(self.get_node("Area2D")):
 					print('valid drop')
+					Globals.num_pp += 1
+					if (Globals.play_pp_npc0):
+						Globals.play_pp_npc0 = false
+						Globals.can_pp_npc0 = false
+					elif (Globals.play_pp_npc1):
+						Globals.play_pp_npc1 = false
+						Globals.can_pp_npc1 = false
 					get_tree().change_scene_to_file("res://scenes/party.tscn")
 
 

@@ -23,6 +23,12 @@ func _ready():
 	pass
 	
 func _process(delta):
+	if (Globals.num_pp == 2):
+		get_tree().change_scene_to_file(\"res://scenes/endlessrunner.tscn\")
+		#print(\"did that dialogue show?\")
+		#Globals.num_pp += 1
+		#Globals.kitty_caught = true
+	
 	if Globals.can_pp_npc0 && Globals.in_pp_npc0 && Input.is_action_just_pressed(\"pickpocket\"):
 		print(\"want to pickpocket npc0\")
 		Globals.play_pp_npc0 = true

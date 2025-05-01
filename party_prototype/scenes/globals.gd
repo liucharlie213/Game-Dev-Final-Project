@@ -1,5 +1,6 @@
 extends Node
 
+
 var in_chat_zone = false
 var is_chatting = false
 
@@ -16,3 +17,5 @@ var can_pp_npc1 = false
 
 var play_pp_npc0 = false
 var play_pp_npc1 = false
+
+var num_pp = 0
