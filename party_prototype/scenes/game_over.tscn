@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://lotwuige1aee"]
+[gd_scene load_steps=5 format=3 uid="uid://lotwuige1aee"]
+
+[ext_resource type="FontFile" uid="uid://cqu1lrccnm6tl" path="res://assets/fonts/monogram.ttf" id="1_afdo3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2c4s"]
 bg_color = Color(0, 0.682353, 0.713726, 1)
@@ -45,7 +47,7 @@ offset_right = 576.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.156863, 0, 0.360784, 1)
+color = Color(0.133333, 0, 0.278431, 1)
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -59,7 +61,8 @@ offset_right = 46.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("1_afdo3")
+theme_override_font_sizes/font_size = 175
 text = "You escaped and 
 made it home!"
 horizontal_alignment = 1
