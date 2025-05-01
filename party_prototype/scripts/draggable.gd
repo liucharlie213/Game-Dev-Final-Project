@@ -2,7 +2,12 @@ extends Sprite2D
 
 var is_dragging = false
 var mouse_offset 
-var delay = 70
+var delay = 10
+var drop_spots
+
+func _ready():
+	drop_spots = get_tree().get_nodes_in_group("drop_spot_group")
+	print(drop_spots)
 
 func _physics_process(delta: float) -> void:
 	if is_dragging == true:
@@ -19,7 +24,10 @@ func _input(event):
 				mouse_offset = get_global_mouse_position() - global_position
 		else:
 			is_dragging = false
+			for drop_spot in drop_spots:
+				if drop_spot.has_overlapping_areas() and drop_spot.get_overlapping_areas().has(self.get_node("Area2D")):
+					print('valid drop')
+					get_tree().change_scene_to_file("res://scenes/party.tscn")
 
 
-func _on_win_area_entered(area: Area2D) -> void:
-	print('win') # Replace with function body.
+ # Replace with function body.
