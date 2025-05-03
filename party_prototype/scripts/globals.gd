@@ -1,8 +1,6 @@
 extends Node
 
-
 var in_chat_zone = false
-var is_chatting = false
 
 var npc_target = -1
 

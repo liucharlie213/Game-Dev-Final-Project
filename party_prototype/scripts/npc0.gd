@@ -11,13 +11,7 @@ func _ready():
 	$AnimatedSprite2D.play("idle")
 	set_chat_option_visibility(false)
 	set_pp_option_visibility(false)
-
-func _process(delta):
-	# how to make it so that when chatting, remove talk 
-	if (Globals.is_chatting):
-		#print("hello")
-		set_chat_option_visibility(false)
-		
+ 
 func _on_body_entered(body: Node2D) -> void:
 	#print(body.name + "enter")
 	Globals.in_chat_zone = true

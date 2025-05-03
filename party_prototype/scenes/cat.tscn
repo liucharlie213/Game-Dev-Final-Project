@@ -98,11 +98,8 @@ func _process(delta):
 			anim.play(\"idle_front\")
 	
 func _unhandled_input(_event: InputEvent) -> void:
-	#if is_chatting and Input.is_action_just_pressed(\"ui_accept\"):
 	if (Globals.in_chat_zone && Input.is_action_just_pressed(\"ui_accept\")):
-		Globals.is_chatting = true
 		if (Globals.npc_target == 0):
-			#print(\"npc_0 state: \" + str(Globals.npc0_state))
 			if (Globals.npc0_state == 0):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"intro\")
 				Globals.npc0_state += 1
@@ -122,13 +119,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 					#print(\"npc0 can pickpcket now\")
 				else:
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"repeat_request_2\")
-			#else:
-				#print(\"about to set can pp npc0\")
-				#Globals.can_pp_npc0 = true		
-				# show the pickpocketing option and trigger it with click		
 				
-			Globals.is_chatting = false
-
 		elif (Globals.npc_target == 1):
 			if (Globals.npc1_state == 0):
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"intro\")
@@ -141,21 +132,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 					Globals.can_pp_npc1 = true
 				else:
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"repeat_request\")
-			#else:
-				## show the pickpocketing option and trigger it with click
-				#pass
 		else:
 			pass
-		
-		#elif (Globals.npc_target == 2):
-			#if (Globals.npc2_state == 0):
-				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc2.dialogue\"), \"intro\")
-				#Globals.npc2_state += 1
-			#elif (Globals.npc2_state == 1):
-				#DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc2.dialogue\"), \"request\")
-				#Globals.npc2_state += 1
-			#elif (Globals.npc2_state == 2):
-				## show the pickpocketing option and trigger it with click		
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yl0fu"]

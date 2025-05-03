@@ -34,7 +34,6 @@ func _ready() -> void:
 	screen_size = get_window().size
 	ground_height = $road.get_node("Sprite2D").texture.get_height()
 	new_game()
-	pass # Replace with function body.
 
 func new_game():
 	%Player.position = START_POS
@@ -65,7 +64,7 @@ func _process(delta: float) -> void:
 	$Camera2D.position.x += speed
 	%Mouse.position.x += speed
 	
-	if $Camera2D.position.x - $road.position.x > screen_size.x * 0.8:
+	if $Camera2D.position.x - $road.position.x > screen_size.x * 1.2:
 		$road.position.x += screen_size.x
 		
 	if $Camera2D.position.x - street_light.position.x > screen_size.x * 1:

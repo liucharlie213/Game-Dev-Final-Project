@@ -10,10 +10,6 @@ func _ready():
 	$AnimatedSprite2D.play("idle")
 	set_chat_option_visibility(false);
 	set_pp_option_visibility(false)
-	#
-#func _process(delta: float) -> void:
-	#if (Globals.is_chatting):
-		#set_chat_option_visibility(false)
 
 func _on_chat_detection_area_body_entered(body: Node2D) -> void:
 	print(body.name + " enter")
@@ -29,6 +25,7 @@ func _on_chat_detection_area_body_entered(body: Node2D) -> void:
 func _on_chat_detection_area_body_exited(body: Node2D) -> void:
 	print(body.name + " exit")
 	Globals.in_chat_zone = false
+	Globals.in_pp_npc1 = false
 	Globals.npc_target = -1
 	if (chat_prompt.visible):
 		set_chat_option_visibility(false)
