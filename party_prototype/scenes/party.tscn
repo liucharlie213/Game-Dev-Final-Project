@@ -1,7 +1,8 @@
-[gd_scene load_steps=49 format=4 uid="uid://ct3aqe22xqk45"]
+[gd_scene load_steps=52 format=4 uid="uid://ct3aqe22xqk45"]
 
 [ext_resource type="Texture2D" uid="uid://3sr5rcdy7es" path="res://assets/Cozy_Tavern_Free/Tilesets/Tileset_Collection_Free.png" id="1_fnc86"]
 [ext_resource type="AudioStream" uid="uid://ck66gcoyraliv" path="res://partymusic.mp3" id="1_j0w8q"]
+[ext_resource type="Script" path="res://scripts/party.gd" id="1_k6f6s"]
 [ext_resource type="PackedScene" uid="uid://dkx8lnfp4ycyl" path="res://scenes/cat.tscn" id="2_n4a4w"]
 [ext_resource type="Texture2D" uid="uid://buqwn84murwoe" path="res://assets/Cozy_Tavern_Free/Furniture/Furniture.png" id="2_sncjp"]
 [ext_resource type="Texture2D" uid="uid://bjdaeayst2l70" path="res://assets/Top-Down_Retro_Interior/TopDownHouse_FurnitureState2.png" id="3_ywfpq"]
@@ -27,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://dd67m8xuq3jg1" path="res://scenes/idle_drinker_2.tscn" id="24_y8bki"]
 [ext_resource type="PackedScene" uid="uid://mn5c04b1wqkx" path="res://npc_8.tscn" id="26_5tg14"]
 [ext_resource type="PackedScene" uid="uid://b8xovwqflvp5o" path="res://npc_9.tscn" id="27_0aouq"]
+[ext_resource type="Script" path="res://scripts/timer.gd" id="29_eb642"]
+[ext_resource type="PackedScene" uid="uid://dmyvmpthgjjgs" path="res://scenes/game_over_fail.tscn" id="30_7uo8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_str8b"]
 texture = ExtResource("1_fnc86")
@@ -2562,6 +2565,7 @@ fill = 1
 fill_from = Vector2(0.509174, 0.5)
 
 [node name="Party" type="Node2D"]
+script = ExtResource("1_k6f6s")
 
 [node name="party_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_j0w8q")
@@ -2588,6 +2592,7 @@ tile_set = SubResource("TileSet_n8b1a")
 
 [node name="Cat" parent="." instance=ExtResource("2_n4a4w")]
 unique_name_in_owner = true
+z_index = 100
 position = Vector2(189, 106)
 
 [node name="Camera2D" type="Camera2D" parent="Cat"]
@@ -2792,4 +2797,15 @@ position = Vector2(129.035, -157.709)
 color = Color(0.47451, 0.188235, 0.776471, 1)
 texture = SubResource("GradientTexture2D_t4ulo")
 
+[node name="CaughtTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 10.0
+one_shot = true
+script = ExtResource("29_eb642")
+
+[node name="GameOverFail" parent="CaughtTimer" instance=ExtResource("30_7uo8n")]
+unique_name_in_owner = true
+
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
+[connection signal="timeout" from="CaughtTimer" to="." method="_on_caught_timer_timeout"]
