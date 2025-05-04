@@ -18,4 +18,7 @@ var play_pp_npc1 = false
 
 var num_pp = 0
 
+var num_fruity = 0
+var num_beers = 0
+
 var on_the_run = false

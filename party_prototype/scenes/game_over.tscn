@@ -35,7 +35,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_gtjmy")
 text = "RESTART"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(1152, 648)
+custom_minimum_size = Vector2(1200, 700)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

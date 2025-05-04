@@ -40,7 +40,7 @@ func _process(delta):
 	
 	if can_pickup_item and Input.is_action_pressed(\"pick\"):
 		can_pickup_item.pickedup = true #signal the picked up area
-		num_drinks += 1
+		#num_drinks += 1
 		can_pickup_item = null
 	
 	#if can_pickpocket and Input.is_action_pressed(\"pickpocket\"):
@@ -101,17 +101,21 @@ func _unhandled_input(_event: InputEvent) -> void:
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"intro\")
 				Globals.npc0_state += 1
 			elif (Globals.npc0_state == 1):
-				if (num_drinks >= 1):
+				if (Globals.num_beers >= 1):
+				#if (num_drinks >= 1):
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"request_cont\")
 					Globals.npc0_state += 1
-					num_drinks -= 1
+					Globals.num_beers -= 1
+					#num_drinks -= 1
 				else:
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"repeat_request_1\")
 			elif (Globals.npc0_state == 2):
-				if (num_drinks >= 1):
+				if (Globals.num_beers >= 1):
+				#if (num_drinks >= 1):
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc0.dialogue\"), \"fin\")
 					Globals.npc0_state += 1
-					num_drinks -= 1
+					Globals.num_beers -= 1
+					#num_drinks -= 1
 					Globals.can_pp_npc0 = true		
 					#print(\"npc0 can pickpcket now\")
 				else:
@@ -122,10 +126,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 				DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"intro\")
 				Globals.npc1_state += 1
 			elif (Globals.npc1_state == 1):
-				if (num_drinks >= 1):
+				if (Globals.num_fruity >= 1):
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"fin\")
 					Globals.npc1_state += 1
-					num_drinks -= 1
+					Globals.num_fruity -= 1
 					Globals.can_pp_npc1 = true
 				else:
 					DialogueManager.show_example_dialogue_balloon(load(\"res://dialogue/npc1.dialogue\"), \"repeat_request\")

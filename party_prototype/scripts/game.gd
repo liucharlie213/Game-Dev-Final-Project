@@ -73,7 +73,6 @@ func _process(delta: float) -> void:
 	if $Camera2D.position.x - bench.position.x > screen_size.x * 1:
 		bench.position.x += screen_size.x * 2
 		
-	
 	#pass
 
 func generate_obs():
@@ -130,8 +129,10 @@ func hit_obs(body, obs):
 
 func game_over():
 	get_tree().paused = true
+	%Timer.stop();
 	$GameOverFail.show()
 
-
 func _on_timer_bar_2_made_it_home() -> void:
+	get_tree().paused = true
+	%Timer.stop();
 	$GameOverSuccess.show()
