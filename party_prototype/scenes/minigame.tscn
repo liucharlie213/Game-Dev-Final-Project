@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cmde774ruipu6"]
+[gd_scene load_steps=24 format=4 uid="uid://cmde774ruipu6"]
 
 [ext_resource type="Texture2D" uid="uid://bs0f8sm30cxg6" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Bitmask references 1.png" id="1_ajqls"]
 [ext_resource type="AudioStream" uid="uid://ck66gcoyraliv" path="res://partymusic.mp3" id="1_u7pgb"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ccl31rsqranil" path="res://assets/minigame_assets/single_dollar.png" id="3_4mggj"]
 [ext_resource type="Script" path="res://scripts/draggable.gd" id="4_r0w5p"]
 [ext_resource type="Texture2D" uid="uid://dsnmwhwqfiltx" path="res://assets/minigame_assets/rubber_duck.png" id="5_t7tco"]
+[ext_resource type="Texture2D" uid="uid://detsqhvs0fy23" path="res://assets/minigame_assets/potatochip_blue.png" id="6_6yv20"]
 [ext_resource type="Texture2D" uid="uid://b22qjklcjly2a" path="res://assets/minigame_assets/scissors.png" id="6_v0lob"]
+[ext_resource type="Texture2D" uid="uid://cfwj1c85mjc20" path="res://assets/minigame_assets/barbeque_sauce.png" id="7_hdk8p"]
 [ext_resource type="FontFile" uid="uid://cqu1lrccnm6tl" path="res://assets/fonts/monogram.ttf" id="8_dbly3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wojgh"]
@@ -506,6 +508,13 @@ radius = 68.0661
 radius = 12.9277
 height = 181.589
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsp3k"]
+size = Vector2(88, 108)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhfr3"]
+radius = 40.0
+height = 94.0
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qyooy"]
 normal = Vector2(1, 0)
 
@@ -566,6 +575,30 @@ texture = ExtResource("6_v0lob")
 rotation = 0.523599
 shape = SubResource("CapsuleShape2D_b562j")
 
+[node name="Chips" type="Area2D" parent="."]
+position = Vector2(338, 257)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chips"]
+position = Vector2(-1, 4)
+scale = Vector2(4.26562, 4.16563)
+texture = ExtResource("6_6yv20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chips"]
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_jsp3k")
+
+[node name="bbq" type="Area2D" parent="."]
+position = Vector2(775, 233)
+
+[node name="Sprite2D" type="Sprite2D" parent="bbq"]
+position = Vector2(2, -1)
+scale = Vector2(5.40625, 4.84375)
+texture = ExtResource("7_hdk8p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bbq"]
+position = Vector2(0, 15)
+shape = SubResource("CapsuleShape2D_qhfr3")
+
 [node name="borders" type="StaticBody2D" parent="."]
 position = Vector2(30, -1)
 
@@ -613,3 +646,5 @@ shape = SubResource("RectangleShape2D_81016")
 
 [connection signal="body_entered" from="Duck" to="CatArm" method="_on_duck_body_entered"]
 [connection signal="body_entered" from="Scissors" to="CatArm" method="_on_scissors_body_entered"]
+[connection signal="body_entered" from="Chips" to="CatArm" method="_on_chips_body_entered"]
+[connection signal="body_entered" from="bbq" to="CatArm" method="_on_bbq_body_entered"]
