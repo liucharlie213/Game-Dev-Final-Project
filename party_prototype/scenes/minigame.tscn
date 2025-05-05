@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cmde774ruipu6"]
+[gd_scene load_steps=26 format=4 uid="uid://cmde774ruipu6"]
 
 [ext_resource type="Texture2D" uid="uid://bs0f8sm30cxg6" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Bitmask references 1.png" id="1_ajqls"]
 [ext_resource type="AudioStream" uid="uid://ck66gcoyraliv" path="res://partymusic.mp3" id="1_u7pgb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b22qjklcjly2a" path="res://assets/minigame_assets/scissors.png" id="6_v0lob"]
 [ext_resource type="Texture2D" uid="uid://cfwj1c85mjc20" path="res://assets/minigame_assets/barbeque_sauce.png" id="7_hdk8p"]
 [ext_resource type="FontFile" uid="uid://cqu1lrccnm6tl" path="res://assets/fonts/monogram.ttf" id="8_dbly3"]
+[ext_resource type="Texture2D" uid="uid://bur2u0bskcuht" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="11_b7mad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wojgh"]
 texture = ExtResource("1_ajqls")
@@ -530,10 +531,14 @@ normal = Vector2(-0.999876, 0.0157461)
 distance = -1119.9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkn1g"]
-size = Vector2(1351, 260)
+size = Vector2(1351, 1370)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81016"]
 size = Vector2(227, 99)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqkbg"]
+radius = 32.0
+height = 80.0
 
 [node name="Minigame" type="Node2D"]
 
@@ -548,7 +553,7 @@ tile_set = SubResource("TileSet_yslxw")
 
 [node name="CatArm" parent="." instance=ExtResource("2_4x72g")]
 z_index = 1
-position = Vector2(471, 420)
+position = Vector2(504, 416)
 
 [node name="Duck" type="Area2D" parent="."]
 position = Vector2(912, 222)
@@ -579,24 +584,24 @@ shape = SubResource("CapsuleShape2D_b562j")
 position = Vector2(338, 257)
 
 [node name="Sprite2D" type="Sprite2D" parent="Chips"]
-position = Vector2(-1, 4)
+position = Vector2(6, 175)
 scale = Vector2(4.26562, 4.16563)
 texture = ExtResource("6_6yv20")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chips"]
-position = Vector2(-1, 5)
+position = Vector2(6, 175)
 shape = SubResource("RectangleShape2D_jsp3k")
 
 [node name="bbq" type="Area2D" parent="."]
 position = Vector2(775, 233)
 
 [node name="Sprite2D" type="Sprite2D" parent="bbq"]
-position = Vector2(2, -1)
+position = Vector2(-87, 119)
 scale = Vector2(5.40625, 4.84375)
 texture = ExtResource("7_hdk8p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bbq"]
-position = Vector2(0, 15)
+position = Vector2(-87, 135)
 shape = SubResource("CapsuleShape2D_qhfr3")
 
 [node name="borders" type="StaticBody2D" parent="."]
@@ -630,19 +635,29 @@ text = "Drag the money towards you!"
 position = Vector2(576, 552)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropSpot"]
-position = Vector2(42.5, 28)
+position = Vector2(40, 667)
 shape = SubResource("RectangleShape2D_hkn1g")
 
 [node name="dollar" type="Sprite2D" parent="."]
-position = Vector2(577, 214)
+position = Vector2(512, 208)
 texture = ExtResource("3_4mggj")
 script = ExtResource("4_r0w5p")
 
 [node name="Area2D" type="Area2D" parent="dollar"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dollar/Area2D"]
-position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_81016")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(720, 168)
+scale = Vector2(6, 6)
+texture = ExtResource("11_b7mad")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(720, 168)
+shape = SubResource("CapsuleShape2D_iqkbg")
 
 [connection signal="body_entered" from="Duck" to="CatArm" method="_on_duck_body_entered"]
 [connection signal="body_entered" from="Scissors" to="CatArm" method="_on_scissors_body_entered"]
