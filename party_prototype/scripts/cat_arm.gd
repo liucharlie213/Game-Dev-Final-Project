@@ -34,3 +34,13 @@ func _on_duck_body_entered(body: Node2D) -> void:
 func _on_scissors_body_entered(body: Node2D) -> void:
 	print('in scissors')
 	get_tree().change_scene_to_file("res://scenes/scissors_caught.tscn") # Replace with function body.
+
+
+func _on_chips_body_entered(body: Node2D) -> void:
+	print('in chips')
+	get_tree().change_scene_to_file("res://scenes/scissors_caught.tscn")
+
+
+func _on_bbq_body_entered(body: Node2D) -> void:
+	print('in bbq') # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/scissors_caught.tscn")

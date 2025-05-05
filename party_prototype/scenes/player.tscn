@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnfbr8wuwgrgi"]
+[gd_scene load_steps=16 format=3 uid="uid://dnfbr8wuwgrgi"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_s7nc5"]
 [ext_resource type="Texture2D" uid="uid://cvw7oygcigluj" path="res://assets/2_Cat_Run-Sheet.png" id="2_0svat"]
+[ext_resource type="AudioStream" uid="uid://cmv3o5l7u4nul" path="res://jump.mp3" id="3_d64br"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifvpa"]
 atlas = ExtResource("2_0svat")
@@ -110,3 +111,7 @@ autoplay = "endless_running"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.23486, 27.4963)
 shape = SubResource("CapsuleShape2D_hkplo")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d64br")
+volume_db = -4.685
