@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3ddmv0adxh0d"]
+[gd_scene load_steps=4 format=3 uid="uid://b3ddmv0adxh0d"]
 
 [ext_resource type="Script" path="res://scripts/controls.gd" id="1_7kvp4"]
 [ext_resource type="FontFile" uid="uid://cqu1lrccnm6tl" path="res://assets/fonts/monogram.ttf" id="2_my26e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0itqt"]
 
 [node name="Controls" type="Node2D"]
 script = ExtResource("1_7kvp4")
@@ -9,7 +11,7 @@ script = ExtResource("1_7kvp4")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.811765, 0.929412, 0.752941, 1)
+color = Color(0.133333, 0, 0.278431, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 1
@@ -17,14 +19,14 @@ offset_left = 48.0
 offset_top = 40.0
 offset_right = 1112.0
 offset_bottom = 608.0
-color = Color(0.52549, 0.756863, 0.792157, 1)
+color = Color(0.337255, 0.14902, 0.658824, 1)
 
 [node name="Label" type="Label" parent="."]
 z_index = 10
-offset_left = 336.0
-offset_top = 72.0
-offset_right = 786.0
-offset_bottom = 191.0
+offset_left = 353.0
+offset_top = 69.0
+offset_right = 803.0
+offset_bottom = 188.0
 theme_override_fonts/font = ExtResource("2_my26e")
 theme_override_font_sizes/font_size = 150
 text = "Controls"
@@ -49,10 +51,25 @@ horizontal_alignment = 1
 z_index = 10
 offset_left = 80.0
 offset_top = 64.0
-offset_right = 200.0
+offset_right = 288.0
 offset_bottom = 113.0
+scale = Vector2(1.00061, 1)
 theme_override_fonts/font = ExtResource("2_my26e")
 theme_override_font_sizes/font_size = 50
-text = "Back"
+text = "Main Menu"
+
+[node name="Next" type="Button" parent="."]
+z_index = 10
+offset_left = 960.0
+offset_top = 528.0
+offset_right = 1080.0
+offset_bottom = 577.0
+scale = Vector2(1.0007, 1)
+theme_override_fonts/font = ExtResource("2_my26e")
+theme_override_font_sizes/font_size = 50
+text = "Next"
+icon = SubResource("ViewportTexture_0itqt")
+icon_alignment = 1
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

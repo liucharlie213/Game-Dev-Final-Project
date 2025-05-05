@@ -45,13 +45,13 @@ offset_right = 576.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.131776, 0.000985477, 0.27927, 1)
+color = Color(0.337255, 0.14902, 0.658824, 1)
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 176.0
-offset_top = 308.0
+offset_top = 291.0
 offset_right = 964.0
-offset_bottom = 391.0
+offset_bottom = 374.0
 theme_override_fonts/font = ExtResource("1_wn7cf")
 theme_override_font_sizes/font_size = 100
 text = "You've been caught :("
@@ -63,9 +63,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -474.5
-offset_top = -234.5
+offset_top = -260.5
 offset_right = 470.5
-offset_bottom = -12.5
+offset_bottom = -38.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_wn7cf")
@@ -74,6 +74,6 @@ text = "GAME OVER"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(584, 503)
+position = Vector2(584, 489)
 scale = Vector2(0.767857, 0.767857)
 texture = ExtResource("1_60hi8")

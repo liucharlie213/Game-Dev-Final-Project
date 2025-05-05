@@ -34,7 +34,6 @@ func _ready() -> void:
 	screen_size = get_window().size
 	ground_height = $road.get_node("Sprite2D").texture.get_height()
 	new_game()
-	pass # Replace with function body.
 
 func new_game():
 	%Player.position = START_POS
@@ -65,7 +64,7 @@ func _process(delta: float) -> void:
 	$Camera2D.position.x += speed
 	%Mouse.position.x += speed
 	
-	if $Camera2D.position.x - $road.position.x > screen_size.x * 0.8:
+	if $Camera2D.position.x - $road.position.x > screen_size.x * 0.5:
 		$road.position.x += screen_size.x
 		
 	if $Camera2D.position.x - street_light.position.x > screen_size.x * 1:
@@ -73,6 +72,7 @@ func _process(delta: float) -> void:
 		
 	if $Camera2D.position.x - bench.position.x > screen_size.x * 1:
 		bench.position.x += screen_size.x * 2
+		
 	#pass
 
 func generate_obs():
@@ -86,6 +86,9 @@ func generate_obs():
 		var obs_y = screen_size.y - ground_height - (obs_height * obs_scale.y /2 ) + 5
 		last_obs = obs
 		add_obs(obs, obs_x, -100)
+		if last_obs.position.x < $Camera2D.position.x:
+			obstacles.remove_at(0)
+		
 
 func add_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
@@ -104,6 +107,8 @@ func generate_s_d():
 		var s_d_y = screen_size.y - ground_height - (s_d_height * s_d_scale.y /2 ) + 5
 		last_s_d = s_d 
 		add_s_d(s_d, s_d_x, randi_range(80, 250))
+		if last_s_d.position.x < $Camera2D.position.x:
+			street_decor.remove_at(0)
 
 func add_s_d(obs, x, y):
 	obs.position = Vector2i(x, y)
@@ -124,8 +129,10 @@ func hit_obs(body, obs):
 
 func game_over():
 	get_tree().paused = true
+	%Timer.stop();
 	$GameOverFail.show()
 
-
 func _on_timer_bar_2_made_it_home() -> void:
+	get_tree().paused = true
+	%Timer.stop();
 	$GameOverSuccess.show()
